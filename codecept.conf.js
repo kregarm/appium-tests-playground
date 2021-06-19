@@ -17,7 +17,8 @@ exports.config = {
           deviceName: 'Android Emulator',
           platformVersion: '10',
           automationName: 'UiAutomator2'
-        }
+        },
+        waitForTimeout: 100000
     },
     emailHelper: {
       require:  './helpers/emailHelper.js'

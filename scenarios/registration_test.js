@@ -1,21 +1,13 @@
 Feature('Registration');
 
 Scenario('Register new user', async ({ I, welcomePage, createAccountPage, emailVerificationPage, loginPage }) => {
-const emailAddress = await I.generateUniqueEmailAddress();
+    const emailAddress = await I.generateUniqueEmailAddress();
     console.log(`Using email address ${emailAddress.email} and tag ${emailAddress.tag}`);
 
     // Navigate to create account page
-    I.waitForVisible(welcomePage.welcomeText, 10);
     I.tap(welcomePage.registerButton);
 
-    // Enter email
-    I.appendField(createAccountPage.emailField, emailAddress.email);
-    I.tap(createAccountPage.passwordField);
-
-    // Enter password and trigger sending of email
-    I.fillField(createAccountPage.passwordField, 'Test1234.');
-    I.hideDeviceKeyboard();
-    I.tap(createAccountPage.createAccountButton);
+    createAccountPage.fillCreateAccounForm(emailAddress.email, 'Test1234.')
 
     // Verify the verification screen is shown
     I.see(emailVerificationPage.expectedText);
@@ -29,7 +21,7 @@ const emailAddress = await I.generateUniqueEmailAddress();
 
     // Back to login screen 
     I.tap(emailVerificationPage.backButton);
-    I.waitForVisible(welcomePage.welcomeText, 10);
+    I.waitForVisible(welcomePage.welcomeText);
 
     // Go to login page - REGISTER and LOGIN button swithced places
     I.tap(welcomePage.registerButton);
@@ -38,11 +30,8 @@ const emailAddress = await I.generateUniqueEmailAddress();
     I.see(emailAddress.email);
 
     // Enter password and press login
-    I.tap(loginPage.passwordField);
-    I.fillField(loginPage.passwordField, 'Test1234.');
-    I.hideDeviceKeyboard();
-    I.tap(loginPage.loginButton);
+    loginPage.fillLoginForm(null, 'Test1234.')
 
     // Verify sucessful login
-    I.waitForVisible('Portfolio', 5);
+    I.waitForVisible('Portfolio');
 });
