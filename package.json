@@ -1,0 +1,17 @@
+{
+  "name": "bizon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-ci": "./node_modules/.bin/codeceptjs run scenarios/registration_test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "codeceptjs": "^3.0.7",
+    "dotenv": "^10.0.0",
+    "webdriverio": "^7.0.0"
+  }
+}
