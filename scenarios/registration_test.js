@@ -6,7 +6,9 @@ Scenario('Register new user', async ({ I, welcomePage, createAccountPage, emailV
 
     // Navigate to create account page
     I.tap(welcomePage.registerButton);
+    I.waitForVisible('Password');
 
+    // Fill and submit form
     createAccountPage.fillCreateAccounForm(emailAddress.email, 'Test1234.')
 
     // Verify the verification screen is shown
@@ -17,6 +19,8 @@ Scenario('Register new user', async ({ I, welcomePage, createAccountPage, emailV
     // Extract link to verify account
     const mails = await I.sendGetRequest(`${process.env.EMAIL_API_ROOT}?apikey=${process.env.EMAIL_API_KEY}&namespace=${process.env.EMAIL_API_NAMESPACE}&tag=${emailAddress.tag}&livequery=true`);
     const verificationLink = await I.extractLoginConfirmationLink(mails.data.emails[0].html);
+
+    // Verify account
     I.sendGetRequest(verificationLink);
 
     // Back to login screen 

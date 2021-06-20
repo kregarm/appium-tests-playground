@@ -32,7 +32,8 @@ exports.config = {
     welcomePage: './pages/welcomePage.js',
     loginPage: './pages/loginPage.js',
     createAccountPage: './pages/createAccountPage.js',
-    emailVerificationPage: './pages/emailVerificationPage.js'
+    emailVerificationPage: './pages/emailVerificationPage.js',
+    priceAlertsPage: './pages/priceAlertsPage.js'
   },
   bootstrap: null,
   mocha: {},
