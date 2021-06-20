@@ -13,8 +13,7 @@ module.exports = {
     XRPSelector: '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.FrameLayout/android.widget.ListView/android.widget.CheckedTextView[5]',
     BCHSelector: '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.FrameLayout/android.widget.ListView/android.widget.CheckedTextView[6]',
     saveAlertButton: '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[8]',
-    alertContainer: '#de.bisonapp:id/llAlertTextContainer',
-    currencyLabelListInAlertsListView: '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup',
+    alertOverlay: '//hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView',
 
     // Methods
     addPriceAlert(currency){
@@ -62,8 +61,8 @@ module.exports = {
         I.tap(this.saveAlertButton);
 
         // Verify that a new alert was sucessfully added
-        //I.waitForVisible(this.alertContainer); // debug this
-        //I.see('Successfully saved price alert', this.alertContainer);
+        I.waitForVisible(this.alertOverlay);
+        I.see('Successfully saved price alert', this.alertOverlay);
         I.see(currency);
     }
 }

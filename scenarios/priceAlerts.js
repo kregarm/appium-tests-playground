@@ -9,7 +9,7 @@ const allCurrencies = ['BTC', 'ETH', 'LTC', 'XRP', 'BCH'];
 
 allCurrencies.forEach(element => currencies.add([element]));
 
-Data(currencies).Scenario('Add a price alert', async ({ I, priceAlertsPage, current }) => {
-  I.tap('//android.widget.FrameLayout[@content-desc=", tab, 3 out of 5"]');
+Data(currencies).Scenario('Add a price alert', async ({ I, priceAlertsPage, navigationBar, current }) => {
+  await navigationBar.navigateTo('priceAlerts');
   await priceAlertsPage.addPriceAlert(current.currency);
 });

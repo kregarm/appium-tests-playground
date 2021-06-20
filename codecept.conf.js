@@ -29,11 +29,16 @@ exports.config = {
   },
   include: {
     I: './steps/steps_file.js',
+
+    // Page objects
     welcomePage: './pages/welcomePage.js',
     loginPage: './pages/loginPage.js',
     createAccountPage: './pages/createAccountPage.js',
     emailVerificationPage: './pages/emailVerificationPage.js',
-    priceAlertsPage: './pages/priceAlertsPage.js'
+    priceAlertsPage: './pages/priceAlertsPage.js',
+
+    //Page fragments
+    navigationBar: './fragments/navigationFragment.js' 
   },
   bootstrap: null,
   mocha: {},

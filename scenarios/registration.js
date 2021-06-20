@@ -1,6 +1,6 @@
 Feature('Registration');
 
-Scenario('Register new user', async ({ I, welcomePage, createAccountPage, emailVerificationPage, loginPage }) => {
+Scenario('Register new user', async ({ I, welcomePage, createAccountPage, emailVerificationPage, loginPage, navigationBar }) => {
     const emailAddress = await I.generateUniqueEmailAddress();
     console.log(`Using email address ${emailAddress.email} and tag ${emailAddress.tag}`);
 
@@ -37,5 +37,5 @@ Scenario('Register new user', async ({ I, welcomePage, createAccountPage, emailV
     loginPage.fillLoginForm(null, 'Test1234.')
 
     // Verify sucessful login
-    I.waitForVisible('Portfolio');
+    I.waitForVisible(navigationBar.root);
 });
