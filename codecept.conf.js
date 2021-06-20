@@ -6,7 +6,7 @@ require('dotenv').config({ path: '.env' });
 setHeadlessWhen(process.env.HEADLESS);
 
 exports.config = {
-  tests: './scenarios/*_test.js',
+  tests: './scenarios/*.js',
   output: './output',
   helpers: {
     Appium: {
