@@ -9,5 +9,5 @@ Scenario('Try to login with invalid credentials', ({ I, welcomePage, loginPage }
 
     // Verify that Login failed message is visible
     I.waitForElement(loginPage.alertElement);
-    I.see('Login failed', loginPage.alertElement);
+    I.see('Login failed');
 });
