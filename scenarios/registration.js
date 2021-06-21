@@ -1,6 +1,11 @@
 Feature('Registration');
 
 Scenario('Register new user', async ({ I, welcomePage, createAccountPage, emailVerificationPage, loginPage, navigationBar }) => {
+    /*
+    *   TODO: move requests to a helper function, validate server responses and fail this test if 
+    *   activation response isn't 200 or if email isn't received/doesn't contain links
+    */
+   
     const emailAddress = await I.generateUniqueEmailAddress();
     console.log(`Using email address ${emailAddress.email} and tag ${emailAddress.tag}`);
 

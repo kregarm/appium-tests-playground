@@ -64,5 +64,9 @@ module.exports = {
         I.waitForVisible(this.alertOverlay);
         I.see('Successfully saved price alert', this.alertOverlay);
         I.see(currency);
+
+        /*
+        *   TODO: add stronger validation for each step
+        */
     }
 }
