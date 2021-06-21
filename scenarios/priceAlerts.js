@@ -5,7 +5,7 @@ Before( async ({ I, loginPage }) => {
   });
 
 let currencies = new DataTable(['currency']);
-const allCurrencies = ['BTC', 'ETH', 'LTC', 'XRP', 'BCH'];
+const allCurrencies = require('./../data/supportedCurrencies.js');
 
 allCurrencies.forEach(element => currencies.add([element]));
 
