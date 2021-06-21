@@ -35,7 +35,7 @@ Feature('<feature name>');
 let dataSet = new DataTable(['tableName']);
 const data = require('./../data/<dataSet>.js');
 
-data.forEach(element => currencies.add([element]));
+data.forEach(element => dataSet.add([element]));
 
 Data(dataSet).Scenario('<scenarioName>', async ({ I, current }) => {
   <your tests>
